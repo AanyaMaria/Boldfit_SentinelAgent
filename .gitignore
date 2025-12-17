@@ -1,0 +1,9 @@
+.env
+*.pyc
+__pycache__/
+# Windows system files
+Thumbs.db
+# Temporary files
+*.tmp
+# Files where you may store local secrets (add more if needed)
+secrets.toml
