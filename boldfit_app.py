@@ -87,11 +87,11 @@ def run_agent(user_query, tools):
     
     try:
     # We pull the key from st.secrets and pass it as 'groq_api_key'
-    llm = ChatGroq(
-        groq_api_key=st.secrets["GROQ_API_KEY"], 
-        model_name="llama-3.3-70b-versatile", 
-        temperature=0
-   	 )
+    	llm = ChatGroq(
+        	groq_api_key=st.secrets["GROQ_API_KEY"], 
+        	model_name="llama-3.3-70b-versatile", 
+        	temperature=0
+   	 	)
     except Exception as e:
     	st.error(f"Failed to initialize Groq: {e}. Check your API key in Streamlit 	Secrets.")
     	st.stop() # Stops the app here so it doesn't crash later
