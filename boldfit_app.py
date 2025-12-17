@@ -1,12 +1,13 @@
-import streamlit as st
 import pandas as pd
 import os
 import io
-import sys # Added for temporary stdout capture
+import sys
+import streamlit as st # Added for secret handling
 from langchain_groq import ChatGroq
 from langchain_core.tools import tool
-from langchain.agents import AgentExecutor, create_tool_calling_agent
 from langchain_core.prompts import ChatPromptTemplate
+# These are the standard locations for latest LangChain
+from langchain.agents import AgentExecutor, create_tool_calling_agent
 
 # --- CONFIGURATION ---
 # PASTE YOUR GROQ KEY HERE INSIDE THE QUOTES
@@ -85,10 +86,15 @@ def run_agent(user_query, tools):
     """Initializes and runs the Groq Agent."""
     
     try:
-        llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
+    # We pull the key from st.secrets and pass it as 'groq_api_key'
+    llm = ChatGroq(
+        groq_api_key=st.secrets["GROQ_API_KEY"], 
+        model_name="llama-3.3-70b-versatile", 
+        temperature=0
+   	 )
     except Exception as e:
-        st.error(f"Failed to initialize Groq: {e}. Check your API key.")
-        return
+    	st.error(f"Failed to initialize Groq: {e}. Check your API key in Streamlit 	Secrets.")
+    	st.stop() # Stops the app here so it doesn't crash later
 
     prompt = ChatPromptTemplate.from_messages([
         ("system", """
