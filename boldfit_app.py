@@ -6,8 +6,7 @@ import streamlit as st # Added for secret handling
 from langchain_groq import ChatGroq
 from langchain_core.tools import tool
 from langchain_core.prompts import ChatPromptTemplate
-from langchain.agents import AgentExecutor
-from langchain.agents.tool_calling_agent.base import create_tool_calling_agent
+from langchain.agents import AgentExecutor, create_tool_calling_agent
 
 # --- CONFIGURATION ---
 # PASTE YOUR GROQ KEY HERE INSIDE THE QUOTES
