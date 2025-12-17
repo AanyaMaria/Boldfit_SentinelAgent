@@ -1,9 +1,9 @@
 streamlit
 pandas
-requests
-groq
 langchain
 langchain-community
 langchain-core
-langchain-openai
 langchain-groq
+langchain-openai
+requests
+groq
