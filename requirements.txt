@@ -1,9 +1,9 @@
 streamlit
-langchain>=0.2.10
-langchain-core>=0.2.10
-langchain-groq
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-groq>=0.2.0
 python-dotenv
-langchain-community
+langchain-community>=0.3.0
 langchain-openai
 pandas
 requests
