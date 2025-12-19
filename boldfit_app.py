@@ -4,8 +4,8 @@ import io
 import sys
 import streamlit as st
 
-# Combined import from the main agents module
-from langchain.agents import AgentExecutor, create_tool_calling_agent
+from langchain.agents import AgentExecutor
+from langchain.agents.tool_calling_agent.base import create_tool_calling_agent
 from langchain_groq import ChatGroq
 from langchain_core.tools import tool
 from langchain_core.prompts import ChatPromptTemplate
