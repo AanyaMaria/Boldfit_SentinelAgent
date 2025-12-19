@@ -7,3 +7,4 @@ Thumbs.db
 *.tmp
 # Files where you may store local secrets (add more if needed)
 secrets.toml
+boldfit_stable/
